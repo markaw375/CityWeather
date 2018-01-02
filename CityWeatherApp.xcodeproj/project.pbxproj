@@ -14,6 +14,8 @@
 		D3B465A61FFBD8E100E19E59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3B465A41FFBD8E100E19E59 /* LaunchScreen.storyboard */; };
 		D3B465B11FFBD8E100E19E59 /* CityWeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B465B01FFBD8E100E19E59 /* CityWeatherAppTests.swift */; };
 		D3B465BC1FFBD8E100E19E59 /* CityWeatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B465BB1FFBD8E100E19E59 /* CityWeatherAppUITests.swift */; };
+		D3B465CA1FFBDA9300E19E59 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B465C91FFBDA9300E19E59 /* CityTableViewCell.swift */; };
+		D3B465CC1FFBDB8C00E19E59 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B465CB1FFBDB8C00E19E59 /* City.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		D3B465B71FFBD8E100E19E59 /* CityWeatherAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityWeatherAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B465BB1FFBD8E100E19E59 /* CityWeatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherAppUITests.swift; sourceTree = "<group>"; };
 		D3B465BD1FFBD8E100E19E59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3B465C91FFBDA9300E19E59 /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
+		D3B465CB1FFBDB8C00E19E59 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			children = (
 				D3B4659B1FFBD8E100E19E59 /* AppDelegate.swift */,
 				D3B4659D1FFBD8E100E19E59 /* ViewController.swift */,
+				D3B465C91FFBDA9300E19E59 /* CityTableViewCell.swift */,
+				D3B465CB1FFBDB8C00E19E59 /* City.swift */,
 				D3B4659F1FFBD8E100E19E59 /* Main.storyboard */,
 				D3B465A21FFBD8E100E19E59 /* Assets.xcassets */,
 				D3B465A41FFBD8E100E19E59 /* LaunchScreen.storyboard */,
@@ -259,7 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3B465CA1FFBDA9300E19E59 /* CityTableViewCell.swift in Sources */,
 				D3B4659E1FFBD8E100E19E59 /* ViewController.swift in Sources */,
+				D3B465CC1FFBDB8C00E19E59 /* City.swift in Sources */,
 				D3B4659C1FFBD8E100E19E59 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +436,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CityWeatherApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lostnfound.CityWeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -442,6 +451,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CityWeatherApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lostnfound.CityWeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
