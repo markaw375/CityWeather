@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct City {
     let name: String
@@ -18,7 +19,9 @@ struct City {
     }
     
     static func AllCities() -> [City] {
-        return [City()]
+        return [City(name: "Warsaw", country: "Poland"),
+                City(name: "Zurych", country: "Switzerland"),
+                     City(name: "Barcelona", country: "Spain")]
     }
 }
 
