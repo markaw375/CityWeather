@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D33E9D1D1FFD105C000602EA /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33E9D1C1FFD105C000602EA /* ContainerViewController.swift */; };
+		D33E9D1F1FFD1084000602EA /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33E9D1E1FFD1084000602EA /* WeatherViewController.swift */; };
 		D3B4659C1FFBD8E100E19E59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B4659B1FFBD8E100E19E59 /* AppDelegate.swift */; };
 		D3B4659E1FFBD8E100E19E59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B4659D1FFBD8E100E19E59 /* ViewController.swift */; };
 		D3B465A11FFBD8E100E19E59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3B4659F1FFBD8E100E19E59 /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D33E9D1C1FFD105C000602EA /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		D33E9D1E1FFD1084000602EA /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		D3B465981FFBD8E100E19E59 /* CityWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B4659B1FFBD8E100E19E59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3B4659D1FFBD8E100E19E59 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				D3B465C91FFBDA9300E19E59 /* CityTableViewCell.swift */,
 				D3B465CB1FFBDB8C00E19E59 /* City.swift */,
 				D3B465CD1FFBE43600E19E59 /* CitiesViewController.swift */,
+				D33E9D1C1FFD105C000602EA /* ContainerViewController.swift */,
+				D33E9D1E1FFD1084000602EA /* WeatherViewController.swift */,
 				D3B4659F1FFBD8E100E19E59 /* Main.storyboard */,
 				D3B465A21FFBD8E100E19E59 /* Assets.xcassets */,
 				D3B465A41FFBD8E100E19E59 /* LaunchScreen.storyboard */,
@@ -272,6 +278,8 @@
 				D3B465CE1FFBE43600E19E59 /* CitiesViewController.swift in Sources */,
 				D3B4659E1FFBD8E100E19E59 /* ViewController.swift in Sources */,
 				D3B465CC1FFBDB8C00E19E59 /* City.swift in Sources */,
+				D33E9D1F1FFD1084000602EA /* WeatherViewController.swift in Sources */,
+				D33E9D1D1FFD105C000602EA /* ContainerViewController.swift in Sources */,
 				D3B4659C1FFBD8E100E19E59 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
