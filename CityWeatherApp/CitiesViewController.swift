@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol CitiesVCDelegate {
+    func citySelected(name: String)
+}
+
 class CitiesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var cities: [City] = []
     let cellIdentifier = "cellId"
+    var delegate: CitiesVCDelegate?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -40,6 +45,11 @@ class CitiesViewController: UIViewController, UITableViewDataSource, UITableView
         let city = cities[indexPath.row]
         cell.cityLabel.text = city.name
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let city: City = cities[indexPath.row]
+        delegate?.citySelected(name: city.name)
     }
 
     /*

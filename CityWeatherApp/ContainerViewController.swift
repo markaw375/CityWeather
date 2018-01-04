@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class ContainerViewController: UIViewController {
 
@@ -18,25 +20,47 @@ class ContainerViewController: UIViewController {
         case menuClosed
     }
     
-    var currentMenuState: MenuState = .menuClosed
+    var currentMenuState: MenuState = .menuClosed {
+        didSet {
+            let shouldShowShadow = (currentMenuState != .menuClosed)
+            setShadowForCenterVC(shouldShowShadow: shouldShowShadow)
+        }
+    }
     
+    let expandOffset: CGFloat = 50.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let centerVC = WeatherViewController()
-        centerVC.delegate = self
-        centerNavigationVC = UINavigationController.init(rootViewController: centerVC)
+        let centerVC = UIStoryboard.weatherViewController()
+        centerVC?.delegate = self
+        centerNavigationVC = UINavigationController.init(rootViewController: centerVC!)
+        centerNavigationVC?.navigationBar.isHidden = true
         self.view.addSubview((centerNavigationVC?.view)!)
-        
-       
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func downloadWeatherForCity(name: String) {
+      
+        Alamofire.request("http://api.openweathermap.org/data/2.5/weather?q=\(name)&appid=6ad546d5484999ef8d3e2cb183ec8165").responseJSON { response in
+//            print("Request: \(String(describing: response.request))")   // original url request
+//            print("Response: \(String(describing: response.response))") // http url response
+//            print("Result: \(response.result)")                         // response serialization result
+
+            if let json = response.result.value {
+//                print("JSON: \(json)") // serialized json response
+                let swiftyJson = JSON(json)
+                if let main = swiftyJson["weather"][0]["main"].string {
+                    //Now you got your value
+                    print(main)
+                }
+            }
+        }
     }
     
 
@@ -52,15 +76,51 @@ class ContainerViewController: UIViewController {
 }
 
 
-extension ContainerViewController : MenuDelegate {
+extension ContainerViewController : MenuDelegate, CitiesVCDelegate {
     
     func toggleMenu() {
-        let isMenuOpened: Bool = (currentMenuState != .menuClosed)
-        if !isMenuOpened {
-            leftVC = UIStoryboard.weatherViewController()
-            self.view.addSubview(leftVC?.view)
-            self.addChildViewController(leftVC?.view)
+        let notAlreadyExpanded: Bool = (currentMenuState != .menuOpened)
+        if notAlreadyExpanded {
+            leftVC = UIStoryboard.citiesViewController()
+            leftVC?.delegate = self
+            self.view.insertSubview((leftVC?.view)!, at: 0)
+            self.addChildViewController(leftVC!)
         }
+        
+        animateLeftPanel(shouldExpand: notAlreadyExpanded)
+        
+    }
+    
+    func animateLeftPanel(shouldExpand: Bool) {
+        if shouldExpand {
+            currentMenuState = .menuOpened
+            animateCenterViewControllerXPosition(targetPosition: ((centerNavigationVC?.view.frame.size.width)! - expandOffset))
+        } else {
+            animateCenterViewControllerXPosition(targetPosition: 0) { finished in
+                self.currentMenuState = .menuClosed
+                self.leftVC?.view.removeFromSuperview()
+                self.leftVC = nil
+            }
+        }
+    }
+    
+    func animateCenterViewControllerXPosition(targetPosition: CGFloat, completion:((Bool)->())? = nil) {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+            self.centerNavigationVC?.view.frame.origin.x = targetPosition
+        }, completion: completion)
+    }
+    
+    func setShadowForCenterVC(shouldShowShadow: Bool) {
+        if shouldShowShadow {
+            self.centerNavigationVC?.view.layer.shadowOpacity = 0.8
+        } else {
+            self.centerNavigationVC?.view.layer.shadowOpacity = 0
+        }
+    }
+    
+    func citySelected(name: String) {
+        toggleMenu()
+        downloadWeatherForCity(name: name)
     }
 }
 
